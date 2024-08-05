@@ -8,5 +8,10 @@ export default defineConfig({
   security: {
     checkOrigin: true,
   },
-  integrations: [react(), tailwind()],
+  integrations: [
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
