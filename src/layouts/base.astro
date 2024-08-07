@@ -4,11 +4,12 @@ import '@styles/global.css';
 import { APP_NAME } from '@/consts';
 
 const {
-  title = '',
-  description = '',
-  generator = true,
+  title,
   titleSeparator = '|',
   titleRemoveAppName = false,
+  description,
+  generator = true,
+  canonical,
 } = Astro.props;
 
 const getTitle = () => {
@@ -37,6 +38,7 @@ const getTitle = () => {
     {generator && <meta name="generator" content={Astro.generator} />}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical || new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
   </head>
   <body>
     <slot />
