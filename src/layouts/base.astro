@@ -1,0 +1,44 @@
+---
+import '@styles/global.css';
+
+import { APP_NAME } from '@/consts';
+
+const {
+  title = '',
+  description = '',
+  generator = true,
+  titleSeparator = '|',
+  titleRemoveAppName = false,
+} = Astro.props;
+
+const getTitle = () => {
+  if (title) {
+    if (titleSeparator) {
+      return titleRemoveAppName
+        ? title
+        : `${APP_NAME} ${titleSeparator} ${title}`;
+    }
+
+    return titleRemoveAppName ? title : `${APP_NAME} ${title}`;
+  }
+
+  return APP_NAME;
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{getTitle()}</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {description && <meta name="description" content={description} />}
+    {generator && <meta name="generator" content={Astro.generator} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
