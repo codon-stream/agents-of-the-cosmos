@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/base.astro';
+import { Button } from '@/components/ui/button';
+---
+
+<Layout>
+  <h1>Sign up</h1>
+  <p>Already have an account? <a href="/signin">Sign in</a></p>
+  <form action="/api/auth/register" method="post">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" />
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" />
+
+    <Button>Sign Up</Button>
+  </form>
+</Layout>

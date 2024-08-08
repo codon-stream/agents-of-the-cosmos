@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
   security: {
     checkOrigin: true,
   },
@@ -12,6 +13,7 @@ export default defineConfig({
     react(),
     tailwind({
       applyBaseStyles: false,
+      nesting: true,
     }),
   ],
 });
