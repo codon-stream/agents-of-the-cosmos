@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
@@ -11,4 +11,22 @@ export default defineConfig({
     checkOrigin: true,
   },
   integrations: [react(), tailwind()],
+  experimental: {
+    env: {
+      schema: {
+        MAINTENANCE_MODE: envField.boolean({
+          context: "server",
+          access: "secret",
+          default: false,
+          optional: true,
+        }),
+        CHROME_PRIVACY_PRESERVING_PREFETCH_PROXY: envField.boolean({
+          context: "server",
+          access: "secret",
+          default: false,
+          optional: true,
+        }),
+      },
+    },
+  },
 });
