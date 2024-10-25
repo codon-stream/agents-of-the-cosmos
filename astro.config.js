@@ -11,6 +11,9 @@ export default defineConfig({
     checkOrigin: true,
   },
   integrations: [react(), tailwind()],
+  redirects: {
+    "/home": "/",
+  },
   experimental: {
     env: {
       schema: {

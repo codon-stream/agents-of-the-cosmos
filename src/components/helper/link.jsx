@@ -1,4 +1,4 @@
-export const Link = ({
+const Link = ({
   href,
   children,
   isExternal = false,
@@ -16,3 +16,5 @@ export const Link = ({
     </a>
   );
 };
+
+export default Link;

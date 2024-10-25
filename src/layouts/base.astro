@@ -11,7 +11,8 @@ const {
     description: description,
     url: new URL(Astro.url.pathname, Astro.site ?? Astro.url),
     type: "website",
-  }
+  },
+  themeColor,
 } = Astro.props;
 ---
 
@@ -28,7 +29,8 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
     {generator && <meta name="generator" content={generator} />}
-    
+    {themeColor && <meta name="theme-color" content={themeColor} />}
+
     {openGraph.title && <meta property="og:title" content={openGraph.title} />}
     {openGraph.description && <meta property="og:description" content={openGraph.description} />}
     {openGraph.type && <meta property="og:type" content={openGraph.type} />}
