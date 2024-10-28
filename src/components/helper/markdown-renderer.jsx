@@ -30,4 +30,6 @@ const MarkdownRenderer = ({
   );
 };
 
+MarkdownRenderer.displayName = "MarkdownRenderer";
+
 export default MarkdownRenderer;
