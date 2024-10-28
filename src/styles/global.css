@@ -27,6 +27,16 @@
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+    --assertive: 120 70% 40%;
+    --assertive-foreground: 0 0% 98%;
+    --informative: 210 80% 45%;
+    --informative-foreground: 0 0% 98%;
+    --preventive: 45 100% 51%;
+    --preventive-foreground: 240 10% 3.9%;
+    --imperative: 270 60% 50%;
+    --imperative-foreground: 0 0% 98%;
+    --promotive: 330 70% 65%;
+    --promotive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
@@ -44,7 +54,7 @@
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    
+
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
 
@@ -65,6 +75,16 @@
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
+    --assertive: 120 50% 30%;
+    --assertive-foreground: 0 0% 98%;
+    --informative: 210 60% 40%;
+    --informative-foreground: 0 0% 98%;
+    --preventive: 45 100% 47%;
+    --preventive-foreground: 0 0% 98%;
+    --imperative: 270 40% 45%;
+    --imperative-foreground: 0 0% 98%;
+    --promotive: 330 50% 50%;
+    --promotive-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
