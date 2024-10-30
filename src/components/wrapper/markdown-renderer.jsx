@@ -6,10 +6,10 @@ import sanitizeHTML from "sanitize-html";
 import { cn } from "@/lib/utils";
 
 const MarkdownRenderer = ({
+  className,
   markdownRaw,
   markedOptions = {},
   sanitizeHTMLOptions = {},
-  className,
   ...props
 }) => {
   useEffect(() => {

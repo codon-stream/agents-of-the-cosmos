@@ -11,12 +11,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        assertive:
+          "bg-assertive text-assertive-foreground hover:bg-assertive/90",
+        informative:
+          "bg-informative text-informative-foreground hover:bg-informative/90",
+        preventive:
+          "bg-preventive text-preventive-foreground hover:bg-preventive/90",
+        imperative:
+          "bg-imperative text-imperative-foreground hover:bg-imperative/90",
+        promotive:
+          "bg-promotive text-promotive-foreground hover:bg-promotive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -35,12 +45,17 @@ const buttonVariants = cva(
 );
 
 const Button = forwardRef(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, size, disabled = false, asChild = false, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
 
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
+        disabled={disabled}
+        aria-disabled={disabled}
         ref={ref}
         {...props}
       />
