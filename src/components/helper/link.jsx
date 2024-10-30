@@ -1,17 +1,16 @@
 const Link = ({
+  className,
   href,
-  children,
   isExternal = false,
   isNewTab = false,
+  children,
   ...props
 }) => {
+  const rel = isExternal || !props.rel ? "nofollow noopener" : props.rel;
+  const target = isNewTab || !props.target ? "_blank" : props.target;
+
   return (
-    <a
-      href={href}
-      rel={isExternal || !props.rel ? "noopener nofollow" : props.rel}
-      target={isNewTab || !props.target ? "_blank" : props.target}
-      {...props}
-    >
+    <a className={className} href={href} rel={rel} target={target} {...props}>
       {children}
     </a>
   );

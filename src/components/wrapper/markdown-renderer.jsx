@@ -6,10 +6,11 @@ import sanitizeHTML from "sanitize-html";
 import { cn } from "@/lib/utils";
 
 const MarkdownRenderer = ({
-  markdownRaw = "",
+  markdownRaw,
   markedOptions = {},
   sanitizeHTMLOptions = {},
-  className = "",
+  className,
+  ...props
 }) => {
   useEffect(() => {
     marked.use(markedOptions);
@@ -26,6 +27,7 @@ const MarkdownRenderer = ({
     <div
       className={cn("prose", className)}
       dangerouslySetInnerHTML={getMarkdownText()}
+      {...props}
     />
   );
 };
