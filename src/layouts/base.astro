@@ -1,19 +1,50 @@
 ---
+import { APP_NAME } from "astro:env/client";
+
 import "@/styles/global.css";
 
 const {
-  title,
+  title = {
+    title: "",
+    absolute: "",
+    template: "",
+    separator: "",
+  },
   description,
   generator = false,
   canonical,
   openGraph = {
-    title: title,
-    description: description,
-    url: new URL(Astro.url.pathname, Astro.site ?? Astro.url),
-    type: "website",
+    title: "",
+    description: "",
+    url: "",
+    type: "",
   },
   themeColor,
 } = Astro.props;
+
+const pageTitle = () => {
+  if (title?.absolute) return title.absolute;
+
+  const defaultTitle = APP_NAME;
+
+  if (title?.title) {
+    const template = title.template || "%title %separator %default";
+
+    return template
+      .replace("%title", title.title)
+      .replace("%default", defaultTitle)
+      .replace("%separator", title.separator || "|");
+  }
+
+  return defaultTitle;
+};
+
+const pageOpenGraph = {
+  title: openGraph.title || pageTitle(),
+  description: openGraph.description || description,
+  url: openGraph.url || new URL(Astro.url.pathname, Astro.site ?? Astro.url),
+  type: openGraph.type || "website",
+};
 ---
 
 <script is:inline>
@@ -23,7 +54,7 @@ const {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{title}</title>
+    <title>{pageTitle()}</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,9 +62,9 @@ const {
     {generator && <meta name="generator" content={generator} />}
     {themeColor && <meta name="theme-color" content={themeColor} />}
 
-    {openGraph.title && <meta property="og:title" content={openGraph.title} />}
-    {openGraph.description && <meta property="og:description" content={openGraph.description} />}
-    {openGraph.type && <meta property="og:type" content={openGraph.type} />}
+    {pageOpenGraph.title && <meta property="og:title" content={pageOpenGraph.title} />}
+    {pageOpenGraph.description && <meta property="og:description" content={pageOpenGraph.description} />}
+    {pageOpenGraph.type && <meta property="og:type" content={pageOpenGraph.type} />}
 
     <link rel="canonical" href={canonical || new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
   </head>

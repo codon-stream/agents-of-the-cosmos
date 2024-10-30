@@ -22,6 +22,11 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
+        APP_NAME: envField.string({
+          context: "client",
+          access: "public",
+          default: "Astro",
+        }),
         MAINTENANCE_MODE: envField.boolean({
           context: "server",
           access: "secret",
