@@ -11,6 +11,7 @@ const {
     separator: "",
   },
   description,
+  keywords = [],
   generator = false,
   canonical,
   openGraph = {
@@ -59,6 +60,7 @@ const pageOpenGraph = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
     {generator && <meta name="generator" content={generator} />}
     {themeColor && <meta name="theme-color" content={themeColor} />}
 
