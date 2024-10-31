@@ -57,18 +57,25 @@ const pageOpenGraph = {
   <head>
     <title>{pageTitle()}</title>
 
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {description && <meta name="description" content={description} />}
     {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
-    {generator && <meta name="generator" content={generator} />}
     {themeColor && <meta name="theme-color" content={themeColor} />}
+    {generator && <meta name="generator" content={generator} />}
 
     {pageOpenGraph.title && <meta property="og:title" content={pageOpenGraph.title} />}
     {pageOpenGraph.description && <meta property="og:description" content={pageOpenGraph.description} />}
     {pageOpenGraph.type && <meta property="og:type" content={pageOpenGraph.type} />}
 
     <link rel="canonical" href={canonical || pageURL} />
+
+    <link rel="apple-touch-icon" sizes="167x167" href="/favicon/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon-120x120.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
   </head>
   <body>
     <slot />
