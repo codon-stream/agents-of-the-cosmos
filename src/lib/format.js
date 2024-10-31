@@ -14,22 +14,6 @@ const readingTime = (text, wordsPerMinute = 300, locale = "en") => {
   };
 };
 
-const sizeUnits = (bytes, decimalPlaces = 2) => {
-  if (bytes === 0) return "0 Bytes";
-
-  const k = 1024;
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-  const units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
-  let result = bytes / Math.pow(k, i);
-
-  result =
-    decimalPlaces > 0 ? result.toFixed(decimalPlaces) : Math.round(result);
-
-  return `${result} ${units[i]}`;
-};
-
 const numberUnits = (number, decimalPlaces = 1) => {
   if (number < 1000) return number.toString();
 
@@ -46,4 +30,20 @@ const numberUnits = (number, decimalPlaces = 1) => {
   return `${result}${units[i]}`;
 };
 
-export { numberUnits, readingTime, sizeUnits };
+const sizeUnits = (bytes, decimalPlaces = 2) => {
+  if (bytes === 0) return "0 Bytes";
+
+  const k = 1024;
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  const units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+  let result = bytes / Math.pow(k, i);
+
+  result =
+    decimalPlaces > 0 ? result.toFixed(decimalPlaces) : Math.round(result);
+
+  return `${result} ${units[i]}`;
+};
+
+export { readingTime, numberUnits, sizeUnits };
