@@ -23,27 +23,27 @@ const {
   themeColor,
 } = Astro.props;
 
+const pageURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+
 const pageTitle = () => {
   if (title?.absolute) return title.absolute;
-
-  const defaultTitle = APP_NAME;
 
   if (title?.title) {
     const template = title.template || "%title %separator %default";
 
     return template
       .replace("%title", title.title)
-      .replace("%default", defaultTitle)
+      .replace("%default", APP_NAME)
       .replace("%separator", title.separator || "|");
   }
 
-  return defaultTitle;
+  return APP_NAME;
 };
 
 const pageOpenGraph = {
   title: openGraph.title || pageTitle(),
   description: openGraph.description || description,
-  url: openGraph.url || new URL(Astro.url.pathname, Astro.site ?? Astro.url),
+  url: openGraph.url || pageURL,
   type: openGraph.type || "website",
 };
 ---
@@ -68,7 +68,7 @@ const pageOpenGraph = {
     {pageOpenGraph.description && <meta property="og:description" content={pageOpenGraph.description} />}
     {pageOpenGraph.type && <meta property="og:type" content={pageOpenGraph.type} />}
 
-    <link rel="canonical" href={canonical || new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
+    <link rel="canonical" href={canonical || pageURL} />
   </head>
   <body>
     <slot />
