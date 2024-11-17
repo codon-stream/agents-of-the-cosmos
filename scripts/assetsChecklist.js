@@ -10,10 +10,10 @@ const directoryPath = path.join(projectRoot, "public");
 const expectedFiles = [
   "favicon/favicon.svg",
   "favicon/favicon.ico",
-  "/favicon/apple-touch-icon-167x167.png",
-  "/favicon/apple-touch-icon-180x180.png",
-  "/favicon/apple-touch-icon-152x152.png",
-  "/favicon/apple-touch-icon-120x120.png",
+  "favicon/apple-touch-icon-167x167.png",
+  "favicon/apple-touch-icon-180x180.png",
+  "favicon/apple-touch-icon-152x152.png",
+  "favicon/apple-touch-icon-120x120.png",
 ];
 
 async function checkFiles() {

@@ -14,7 +14,7 @@
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
     "@radix-ui/react-slot": "^1.1.0",
-    "astro": "^4.16.11",
+    "astro": "^4.16.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "marked": "^15.0.0",
@@ -23,7 +23,7 @@
     "react-dom": "^18.3.1",
     "sanitize-html": "^2.13.1",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
