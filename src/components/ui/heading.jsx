@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const baseHeadingClasses = "tracking-tight text-foreground";
 
-const H1 = ({ className, asDisplay = false, ...props }) => {
+const H1 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h1";
 
   return (
@@ -20,7 +20,7 @@ const H1 = ({ className, asDisplay = false, ...props }) => {
 
 H1.displayName = "H1";
 
-const H2 = ({ className, asDisplay = false, ...props }) => {
+const H2 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h2";
 
   return (
@@ -38,7 +38,7 @@ const H2 = ({ className, asDisplay = false, ...props }) => {
 
 H2.displayName = "H2";
 
-const H3 = ({ className, asDisplay = false, ...props }) => {
+const H3 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h3";
 
   return (
@@ -56,7 +56,7 @@ const H3 = ({ className, asDisplay = false, ...props }) => {
 
 H3.displayName = "H3";
 
-const H4 = ({ className, asDisplay = false, ...props }) => {
+const H4 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h4";
 
   return (
@@ -74,7 +74,7 @@ const H4 = ({ className, asDisplay = false, ...props }) => {
 
 H4.displayName = "H4";
 
-const H5 = ({ className, asDisplay = false, ...props }) => {
+const H5 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h5";
 
   return (
@@ -92,7 +92,7 @@ const H5 = ({ className, asDisplay = false, ...props }) => {
 
 H5.displayName = "H5";
 
-const H6 = ({ className, asDisplay = false, ...props }) => {
+const H6 = ({ className="", asDisplay = false, ...props }) => {
   const Comp = asDisplay ? "p" : "h6";
 
   return (
